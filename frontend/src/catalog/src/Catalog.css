@@ -1,0 +1,31 @@
+.catalog-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.catalog-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.catalog-error {
+    color: red;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.catalog-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.catalog-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}

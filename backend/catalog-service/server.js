@@ -8,12 +8,12 @@ app.use(cors());
 app.use(express.json());
 
 let products = [
-    { id: 1, name: 'Товар 1', price: 100 },
-    { id: 2, name: 'Товар 2', price: 200 },
-    { id: 3, name: 'Товар 3', price: 300 },
+    { id: 1, name: 'Товар 1', price: 100, description: '', imageURL: '' },
+    { id: 2, name: 'Товар 2', price: 200, description: '', imageURL: '' },
+    { id: 3, name: 'Товар 3', price: 300, description: '', imageURL: '' },
 ];
 
-app.get('/', (req, res) => {
+app.get('/status', (req, res) => {
     res.send('Сервер работает!');
 });
 

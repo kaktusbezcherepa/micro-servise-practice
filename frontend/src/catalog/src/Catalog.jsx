@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../src/Catalog.css'
 
 const Catalog = () => {
     const [products, setProducts] = useState([]);
@@ -29,15 +30,16 @@ const Catalog = () => {
     }
 
     return (
-        <div>
-            <h1>Список товаров</h1>
+        <>
+        <div className="catalog-container">
+            <h1 className="catalog-header">Список товаров</h1>
             {error ? (
-                <div>Ошибка: {error}</div>
+                <div className="catalog-error">Ошибка: {error}</div>
             ) : (
-                <ul>
+                <ul className="catalog-list">
                     {products.length > 0 ? (
                         products.map((product) => (
-                            <li key={product.id}>
+                            <li className="catalog-item" key={product.id}>
                                 {product.name} - {product.price} руб.
                             </li>
                         ))
@@ -47,7 +49,8 @@ const Catalog = () => {
                 </ul>
             )}
         </div>
-    );
+        </>
+    )
 };
 
 export default Catalog;
