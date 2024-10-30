@@ -10,6 +10,9 @@ const HomePage = () => {
             <Link to="/catalog">
                 <button>Перейти в каталог</button>
             </Link>
+            <Link to="cart">
+                <button>Перейти в корзину</button>
+            </Link>
         </div>    
         </>
     );

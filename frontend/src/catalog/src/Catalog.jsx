@@ -6,6 +6,22 @@ const Catalog = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const addToCart = async (product) => {
+        try {
+            const response = await fetch('http://localhost:3001/cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(product),
+            })
+            if (!response.ok) {
+                throw new Error('Ошибка при добавлении товара в корзину');
+            }
+        } catch(err) {
+            setError(err.message)
+    }
+}
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -40,7 +56,9 @@ const Catalog = () => {
                     {products.length > 0 ? (
                         products.map((product) => (
                             <li className="catalog-item" key={product.id}>
-                                {product.name} - {product.price} руб.
+                                {product.name} - {product.price} руб. <br />
+                                {product.description} <br />
+                                <button onClick={addToCart(product)}>Добавить в корзину</button>
                             </li>
                         ))
                     ) : (

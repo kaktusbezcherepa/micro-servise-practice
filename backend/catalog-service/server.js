@@ -8,9 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 let products = [
-    { id: 1, name: 'Товар 1', price: 100, description: '', imageURL: '' },
-    { id: 2, name: 'Товар 2', price: 200, description: '', imageURL: '' },
-    { id: 3, name: 'Товар 3', price: 300, description: '', imageURL: '' },
+    { id: 1, name: 'Товар 1', price: 100, description: 'кружка', imageURL: '' },
+    { id: 2, name: 'Товар 2', price: 200, description: 'катана', imageURL: '' },
+    { id: 3, name: 'Товар 3', price: 300, description: 'наушники', imageURL: '' },
 ];
 
 app.get('/status', (req, res) => {
