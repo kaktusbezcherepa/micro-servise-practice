@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../src/Catalog.css'
 
 const Catalog = () => {
@@ -18,6 +20,7 @@ const Catalog = () => {
             if (!response.ok) {
                 throw new Error('Ошибка при добавлении товара в корзину');
             }
+            notify()
         } catch(err) {
             setError(err.message)
     }
@@ -45,20 +48,37 @@ const Catalog = () => {
         return <div>Загрузка товаров...</div>;
     }
 
+    function notify() {
+        toast.success('🦄 Товар успешно добавлен в корзину!', {
+            position: "bottom-center",
+            autoClose: 5000, // Уберите кавычки у числовых значений
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "light",
+        });
+    };
+
     return (
         <>
-        <div className="catalog-container">
-            <h1 className="catalog-header">Список товаров</h1>
+         <ToastContainer />
+        <div className="catalog__container">
+            <h1 className="catalog__header">Список товаров</h1>
             {error ? (
-                <div className="catalog-error">Ошибка: {error}</div>
+                <div className="catalog__error">Ошибка: {error}</div>
             ) : (
-                <ul className="catalog-list">
+                <ul className="catalog__list">
                     {products.length > 0 ? (
                         products.map((product) => (
-                            <li className="catalog-item" key={product.id}>
+                            <li className="catalog__item" key={product.id}>
                                 {product.name} - {product.price} руб. <br />
                                 {product.description} <br />
-                                <button onClick={addToCart(product)}>Добавить в корзину</button>
+                                <button onClick={() =>
+                                
+                                addToCart(product)}>
+                                    Добавить в корзину
+                                </button>
                             </li>
                         ))
                     ) : (

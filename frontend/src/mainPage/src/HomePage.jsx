@@ -5,7 +5,7 @@ import './HomePage.css'
 const HomePage = () => {
     return (
         <>
-        <div className="container">
+        <div className="container__home__page">
         <h1>Магазин</h1>
             <Link to="/catalog">
                 <button>Перейти в каталог</button>
