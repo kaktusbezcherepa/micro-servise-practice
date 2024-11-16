@@ -11,3 +11,17 @@
     list-style-type: none;
     font-family: Exo2-Regular;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
