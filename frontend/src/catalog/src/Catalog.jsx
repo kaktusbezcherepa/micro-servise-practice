@@ -13,6 +13,7 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { styled } from '@mui/material/styles';
+import Header from '../../common_components/src/Header';
 
 const StyledCard = styled(Card)(() => ({
     height: '100%',
@@ -108,6 +109,7 @@ const Catalog = () => {
 
     return (
         <>
+        <Header />
             <ToastContainer />
             <Container maxWidth="lg" sx={{ py: 4 }}>
                 <Typography 

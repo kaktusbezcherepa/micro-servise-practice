@@ -1,4 +1,6 @@
 import  { useState, useEffect } from 'react';
+import Header from '../../common_components/src/Header';
+import EditIcon from '@mui/icons-material/Edit';
 import {
   Table,
   TableBody,
@@ -10,7 +12,8 @@ import {
   Typography,
   Container,
   CircularProgress,
-  Alert
+  Alert,
+  Button
 } from '@mui/material';
 
 const AdminDashboard = () => {
@@ -37,12 +40,14 @@ const AdminDashboard = () => {
         }
     };
 
-    const tableHeaders = ['ID', 'Название', 'Цена', 'Описание', 'URL изображения'];
+    const tableHeaders = ['ID', 'Название', 'Цена', 'Описание', 'URL изображения', "Действия"];
 
     if (isLoading) return <CircularProgress />;
     if (error) return <Alert severity="error">Ошибка: {error}</Alert>;
 
     return (
+        <>
+        <Header/>
         <Container maxWidth="lg">
             <Typography variant="h4" component="h1" gutterBottom align="center">
                 Список товаров
@@ -64,12 +69,14 @@ const AdminDashboard = () => {
                                 <TableCell>{product.price}</TableCell>
                                 <TableCell>{product.description}</TableCell>
                                 <TableCell>{product.imageURL}</TableCell>
+                                <TableCell>{<EditIcon />}{<Button variant='text' sx={{fontSize: 12, color: "red", mb: 1}} onClick={() => alert('Товар удален')}>Удалить</Button>}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
         </Container>
+        </>
     );
 };
 

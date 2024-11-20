@@ -13,6 +13,7 @@ import {
     Paper,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import Header from '../../common_components/src/Header';
 
 const StyledCard = styled(Card)(({ theme }) => ({
     marginBottom: theme.spacing(2),
@@ -81,6 +82,8 @@ const Cart = () => {
     }
 
     return (
+        <>
+        <Header />
         <Container maxWidth="md" sx={{ py: 4 }}>
             <Typography variant="h3" component="h1" gutterBottom align="center">
                 Корзина
@@ -144,6 +147,7 @@ const Cart = () => {
                 </Alert>
             )}
         </Container>
+        </>
     );
 };
 

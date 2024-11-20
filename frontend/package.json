@@ -1,0 +1,30 @@
+{
+    "name": "frontend",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+      "dev:admin": "vite --config src/admin/vite.config.js",
+      "dev:cart": "vite --config src/cart/vite.config.js",
+      "dev:catalog": "vite --config src/catalog/vite.config.js",
+      "dev:user_profile": "vite --config src/user_profile/vite.config.js",
+      "dev:mainpage": "vite --config src/mainPage/vite.config.js",
+      "build": "vite build",
+      "lint": "eslint ."
+    },
+    "dependencies": {
+      "@emotion/react": "^11.13.3",
+      "@emotion/styled": "^11.13.0",
+      "@mui/material": "^6.1.7",
+      "react": "^18.3.1",
+      "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+      "@eslint/js": "^9.13.0",
+      "@vitejs/plugin-react": "^4.3.3",
+      "eslint": "^9.13.0",
+      "eslint-plugin-react": "^7.37.2",
+      "eslint-plugin-react-hooks": "^5.0.0",
+      "vite": "^5.4.10"
+    }
+}
