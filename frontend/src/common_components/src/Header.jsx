@@ -1,6 +1,6 @@
 import { Storefront, ShoppingCart, AdminPanelSettings, AccountBox } from '@mui/icons-material';
 import { Box, AppBar, Toolbar, Typography } from '@mui/material';
-// import "../../../index.css"
+
 import "./Header.css"
 
 const Header = () => {
@@ -11,7 +11,6 @@ const Header = () => {
                     <a href="http://localhost:3010">LOGO</a> 
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 3 }}>
-
                     <a href="http://localhost:3011/catalog">
                         <Storefront />
                     </a>

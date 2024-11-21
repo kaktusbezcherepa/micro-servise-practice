@@ -79,23 +79,23 @@ const Catalog = () => {
         }
     };
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch('http://localhost:3000/products');
-                if (!response.ok) {
-                    throw new Error('Ошибка при загрузке данных');
-                }
-                const data = await response.json();
-                console.log('Полученные продукты:', data);
-                setProducts(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
+    const fetchProducts = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/products');
+            if (!response.ok) {
+                throw new Error('Ошибка при загрузке данных');
             }
-        };
+            const data = await response.json();
+            console.log('Полученные продукты:', data);
+            setProducts(data);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
         fetchProducts();
     }, []);
 
@@ -110,7 +110,7 @@ const Catalog = () => {
     return (
         <>
         <Header />
-            <ToastContainer />
+            <ToastContainer position='bottom-center' autoClose={3000}/>
             <Container maxWidth="lg" sx={{ py: 4 }}>
                 <Typography 
                     variant="h3" 
@@ -131,12 +131,13 @@ const Catalog = () => {
                         {products.length > 0 ? (
                             products.map((product) => (
                                 <ProductItem key={product._id}>
-                                    <StyledCard>
+                                    <StyledCard sx={{ height: 350}}>
                                         <StyledCardContent>
                                             <Typography variant="h5" component="h2" gutterBottom>
                                                 {product.name}
                                             </Typography>
                                             <Typography 
+                                                sx={{ mt: 20}}
                                                 variant="h6" 
                                                 color="primary" 
                                                 gutterBottom

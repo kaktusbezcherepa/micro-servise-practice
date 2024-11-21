@@ -46,10 +46,10 @@ const Cart = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetchCart();
+        getCartItemsList();
     }, []);
 
-    const fetchCart = async () => {
+    const getCartItemsList = async () => {
         try {
             const response = await fetch('http://localhost:3001/cart');
             if (!response.ok) {
@@ -66,7 +66,7 @@ const Cart = () => {
         }
     };
 
-    const calculateTotal = () => {
+    const calculateTotalCartPrice = () => {
         return cartItems.reduce((sum, item) => {
             const price = item.productId?.price || 0;
             return sum + (price * item.quantity);
@@ -137,7 +137,7 @@ const Cart = () => {
                     <Divider sx={{ my: 2 }} />
                     <TotalPrice elevation={3}>
                         <Typography variant="h5" align="right">
-                            Итого: {calculateTotal()} руб.
+                            Итого: {calculateTotalCartPrice()} руб.
                         </Typography>
                     </TotalPrice>
                 </>
